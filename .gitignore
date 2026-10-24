@@ -1,0 +1,9 @@
+# OS / Editor specific
+.vim/
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# Root level logs
+*.log
