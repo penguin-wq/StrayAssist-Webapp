@@ -11,12 +11,9 @@ services:
     ports:
       - "5173:5173"
     volumes:
-      # Mount local frontend code into container to achieve hot reload
       - ./frontend:/app
-      # Anonymous volume protects node_modules from being overwritten by host machine
       - /app/node_modules
     environment:
-      # Override proxy target
       - VITE_PROXY_TARGET=http://backend:8080
     depends_on:
       - backend
