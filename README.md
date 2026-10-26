@@ -1,7 +1,5 @@
 # 🐈🐕StrayAssist
 
-A web application for [brief description of what StrayAssist does].
-
 ## 🚀🐋Quick Start (Docker)
 
 Docker is the only prerequisite. Node.js, Java, and Gradle do not need to be installed locally.
