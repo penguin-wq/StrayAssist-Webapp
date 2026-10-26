@@ -1,4 +1,3 @@
-# Build stage
 FROM eclipse-temurin:21-jdk AS build
 WORKDIR /app
 COPY gradlew .
@@ -7,7 +6,6 @@ COPY build.gradle.kts settings.gradle.kts ./
 COPY src src
 RUN chmod +x gradlew && ./gradlew bootJar --no-daemon
 
-# Runtime stage
 FROM eclipse-temurin:21-jre
 WORKDIR /app
 COPY --from=build /app/build/libs/*.jar app.jar
