@@ -1,0 +1,32 @@
+# Docker Compose Command Interface
+#
+# This file automates Docker validation and image building for the project,
+# helping to catch configuration and build errors whenever the project updates. 
+
+name: Docker Compose CI
+
+# Specifies when this workflow should run.
+on:
+  # Run the workflow whenever the code is pushed to the main branch.
+  push:
+    branches: ["main"]
+
+  # Also run the workflow when pull requests targets main.
+  pull_request:
+    branches: ["main"]
+
+# Defines the job that github action will execute.
+jobs:
+  build:
+    # Virtual machine
+    runs-on: ubuntu-latest
+    
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Validate Docker Compose
+        run: docker compose config
+
+      - name: Build Docker images
+        run: docker compose build
